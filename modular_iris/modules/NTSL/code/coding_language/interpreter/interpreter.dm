@@ -130,6 +130,8 @@
 		cur_statements++
 		if(cur_statements >= MAX_STATEMENTS)
 			RaiseError(new /datum/runtimeError/MaxCPU(MAX_STATEMENTS), scope, S)
+			var/message = "cur_statement: [cur_statements]"
+			message_admins(message)
 			AlertAdmins()
 			break
 
@@ -174,6 +176,8 @@
 
 ///Runs a function block or a proc with the arguments specified in the script.
 /datum/n_Interpreter/proc/RunFunction(datum/node/expression/FunctionCall/stmt, datum/scope/scope)
+	//var/message = "[stmt.token.value] Start: [cur_statements]"
+	//message_admins(message)
 	var/datum/n_function/func
 	var/this_obj
 	if(istype(stmt.function, /datum/node/expression/member))
@@ -193,6 +197,8 @@
 		return func.execute(this_obj, params, scope, src, stmt)
 	catch(var/exception/E)
 		RaiseError(new /datum/runtimeError/Internal(E), scope, stmt)
+	//var/message = "[stmt.token.value] Start: [cur_statements]"
+	//message_admins(message)
 
 ///Checks a condition and runs either the if block or else block.
 /datum/n_Interpreter/proc/RunIf(datum/node/statement/IfStatement/stmt, datum/scope/scope)

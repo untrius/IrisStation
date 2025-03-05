@@ -81,5 +81,7 @@
 					return
 			else
 				non_whitespace = TRUE
+	var/message = "Script length: [char_count]"
+	message_admins(message)
 	if(non_whitespace)
 		return text		//only accepts the text if it has some non-spaces

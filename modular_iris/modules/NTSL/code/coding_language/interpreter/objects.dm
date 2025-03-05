@@ -123,6 +123,8 @@ GLOBAL_LIST_EMPTY(ntsl_methods)
 	return ..()
 
 /datum/n_function/defined/execute(this_obj, list/params, datum/scope/scope, datum/n_Interpreter/interp, datum/node/node)
+	var/message = "recursion depth: [scope.recursion]"
+	message_admins(message)
 	if(scope.recursion >= 10)
 		interp.AlertAdmins()
 		interp.RaiseError(new /datum/runtimeError/RecursionLimitReached(), scope, node)
