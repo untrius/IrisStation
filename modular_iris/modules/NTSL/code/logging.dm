@@ -4,3 +4,4 @@
 	config_flag = /datum/config_entry/flag/log_ntsl
 
 /datum/config_entry/flag/log_ntsl
+	default = TRUE
