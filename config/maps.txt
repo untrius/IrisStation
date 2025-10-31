@@ -99,3 +99,7 @@ endmap
 map oshan
 	votable
 endmap
+
+map octohedral
+	votable
+endmap
