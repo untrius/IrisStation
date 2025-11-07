@@ -218,7 +218,7 @@
 
 //turfs
 /turf/closed/mineral/strange_rock
-	mineralAmt = 1
+	mineralAmt = rand(1,3)  // iris edit - more strange rocks
 	icon = MAP_SWITCH('modular_nova/modules/liquids/icons/turf/smoothrocks.dmi', 'modular_nova/modules/xenoarch/icons/mining.dmi')
 	icon_state = "rock_strange"
 	scan_icon = 'modular_nova/modules/xenoarch/icons/ore_visuals.dmi'
